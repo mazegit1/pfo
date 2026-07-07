@@ -1,3 +1,4 @@
+// components/ResumeDocument.tsx
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
 
@@ -10,112 +11,30 @@ Font.register({
 });
 
 const styles = StyleSheet.create({
-  page: {
-    padding: 36,
-    backgroundColor: '#fcfaf6',
-    color: '#161616',
-    fontFamily: 'Helvetica',
-  },
-  header: {
-    marginBottom: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e5e5e5',
-    paddingBottom: 14,
-  },
-  name: {
-    fontSize: 28,
-    fontWeight: 'light',
-    letterSpacing: -0.5,
-  },
-  title: {
-    fontSize: 11,
-    fontFamily: 'Courier',
-    color: '#737373',
-    marginTop: 4,
-    letterSpacing: 1,
-  },
-  metaContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 12,
-    fontSize: 9,
-    color: '#737373',
-  },
-  section: {
-    marginBottom: 16,
-  },
-  sectionTitle: {
-    fontSize: 10,
-    fontFamily: 'Courier',
-    color: '#a3a3a3',
-    letterSpacing: 2,
-    marginBottom: 8,
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#e5e5e5',
-    paddingBottom: 4,
-  },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginBottom: 4,
-  },
-  gridItem: {
-    width: '50%',
-    marginBottom: 6,
-  },
-  techLabel: {
-    fontSize: 10,
-    fontWeight: 'bold',
-  },
-  techValue: {
-    fontSize: 10,
-    color: '#525252',
-    marginTop: 2,
-  },
-  jobContainer: {
-    marginBottom: 12,
-  },
-  jobHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'baseline',
-  },
-  jobTitle: {
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-  jobCompany: {
-    fontSize: 10,
-    color: '#737373',
-    fontFamily: 'Courier',
-  },
-  jobDate: {
-    fontSize: 9,
-    color: '#a3a3a3',
-  },
-  bullet: {
-    fontSize: 9.5,
-    color: '#404040',
-    marginLeft: 8,
-    marginTop: 4,
-    lineHeight: 1.4,
-  },
-  projectTitle: {
-    fontSize: 11,
-    fontWeight: 'bold',
-  },
-  projectStack: {
-    fontSize: 9,
-    fontFamily: 'Courier',
-    color: '#737373',
-    marginTop: 2,
-  }
+  page: { padding: 36, backgroundColor: '#fcfaf6', color: '#161616', fontFamily: 'Helvetica' },
+  header: { marginBottom: 20, borderBottomWidth: 1, borderBottomColor: '#e5e5e5', paddingBottom: 14 },
+  name: { fontSize: 28, fontWeight: 'light', letterSpacing: -0.5 },
+  title: { fontSize: 11, fontFamily: 'Courier', color: '#737373', marginTop: 4, letterSpacing: 1 },
+  metaContainer: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 12, fontSize: 9, color: '#737373' },
+  section: { marginBottom: 16 },
+  sectionTitle: { fontSize: 10, fontFamily: 'Courier', color: '#a3a3a3', letterSpacing: 2, marginBottom: 8, borderBottomWidth: 0.5, borderBottomColor: '#e5e5e5', paddingBottom: 4 },
+  grid: { flexDirection: 'row', flexWrap: 'wrap', marginBottom: 4 },
+  gridItem: { width: '50%', marginBottom: 6 },
+  techLabel: { fontSize: 10, fontWeight: 'bold' },
+  techValue: { fontSize: 10, color: '#525252', marginTop: 2 },
+  jobContainer: { marginBottom: 12 },
+  jobHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' },
+  jobTitle: { fontSize: 12, fontWeight: 'bold' },
+  jobCompany: { fontSize: 10, color: '#737373', fontFamily: 'Courier' },
+  jobDate: { fontSize: 9, color: '#a3a3a3' },
+  bullet: { fontSize: 9.5, color: '#404040', marginLeft: 8, marginTop: 4, lineHeight: 1.4 },
+  projectTitle: { fontSize: 11, fontWeight: 'bold' },
+  projectStack: { fontSize: 9, fontFamily: 'Courier', color: '#737373', marginTop: 2 }
 });
 
 export const ResumeDocument = () => (
   <Document title="Huseyn Khalil - Resume" author="Huseyn Khalil">
     <Page size="A4" style={styles.page}>
-      
       <View style={styles.header}>
         <Text style={styles.name}>Huseyn Khalil</Text>
         <Text style={styles.title}>FRONT-END SPECIALIST</Text>
@@ -165,7 +84,6 @@ export const ResumeDocument = () => (
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>// PRODUCTION EXPERIENCE LOGS</Text>
-        
         <View style={styles.jobContainer}>
           <View style={styles.jobHeader}>
             <Text style={styles.jobTitle}>Front-end Specialist / Developer</Text>
@@ -182,14 +100,12 @@ export const ResumeDocument = () => (
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>// DEPLOYED SYSTEM NODES</Text>
-        
         <View style={styles.jobContainer}>
           <Text style={styles.projectTitle}>Course Management Platform</Text>
           <Text style={styles.projectStack}>Next.js // Node.js // Tailwind CSS</Text>
           <Text style={styles.bullet}>• Engineered an automated institutional space managing real-time student indexing, secure tuition transaction tracing pipelines, and attendance analytics.</Text>
           <Text style={styles.bullet}>• Built fully responsive administration dashboards utilizing highly scannable grid layouts and interactive tabular charts.</Text>
         </View>
-
         <View style={styles.jobContainer}>
           <Text style={styles.projectTitle}>Internship Management Pipeline</Text>
           <Text style={styles.projectStack}>Java // Next.js // TypeScript</Text>
@@ -210,7 +126,6 @@ export const ResumeDocument = () => (
           <Text style={styles.bullet}>• Investigates low-level computing architectures and component electronics data streaming principles.</Text>
         </View>
       </View>
-
     </Page>
   </Document>
 );
