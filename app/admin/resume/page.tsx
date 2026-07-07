@@ -1,12 +1,16 @@
 // app/admin/resume/page.tsx
-import dynamic from 'next/dynamic';
+import React from 'react';
+import nextDynamic from 'next/dynamic';
 
-// Düyməni server tərəfdə render etməmək üçün dinamik import edirik
-const ExportResumeComponent = dynamic(
+export const dynamic = "force-dynamic";
+
+// Komponenti səs-küysüz, heç bir parametr vermədən çağırırıq
+// Çünki Next.js 16-da ssr:false birbaşa burada yox, daxildə tətbiq olunmalıdır
+const DynamicExport = nextDynamic(
   () => import('@/components/ExportResumeComponent'),
-  { ssr: false }
+  { loading: () => <p className="p-8 font-mono text-xs">Loading Vector Engine...</p> }
 );
 
 export default function AdminResumePage() {
-  return <ExportResumeComponent />;
+  return <DynamicExport />;
 }

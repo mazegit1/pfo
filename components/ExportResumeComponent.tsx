@@ -1,12 +1,27 @@
 // components/ExportResumeComponent.tsx
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import { ResumeDocument } from './ResumeDocument'; // Yuxarıda yaratdığımız şablon
+import { ResumeDocument } from './ResumeDocument';
 import { FiCpu } from 'react-icons/fi';
 
 const ExportResumeComponent = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Brauzer tam hazır olana qədər server tərəfdə @react-pdf kodunun icrasını bloklayırıq
+  if (!isMounted) {
+    return (
+      <div className="w-full min-h-screen bg-[#fcfaf6] flex items-center justify-center font-mono text-xs text-neutral-400">
+        Mounting Binary Layer...
+      </div>
+    );
+  }
+
   return (
     <div className="w-full min-h-screen bg-[#fcfaf6] flex flex-col items-center justify-center p-6">
       <div className="border border-neutral-300 p-8 max-w-md w-full bg-neutral-200/10 rounded-sm text-center space-y-6">
@@ -16,7 +31,6 @@ const ExportResumeComponent = () => {
           <p className="text-xs font-mono text-neutral-400">// target: generated/resume.pdf</p>
         </div>
 
-        {/* Bu düymə kodu oxuyub sıfırdan təzə PDF yaradır */}
         <PDFDownloadLink document={<ResumeDocument />} fileName="huseyn_khalil_resume.pdf">
           {/* @ts-ignore */}
           {({ loading }) => (
@@ -26,17 +40,11 @@ const ExportResumeComponent = () => {
           )}
         </PDFDownloadLink>
 
-        {/* BONUS: Əgər sən həm də public/resume.pdf qovluğundakı hazır statik faylı yükləmək istəsən, altındakı bu linki aktiv edə bilərsən */}
         <div className="pt-2 border-t border-neutral-200">
-          <a 
-            href="/resume.pdf" 
-            download
-            className="text-[10px] font-mono text-neutral-400 hover:text-neutral-600 underline block"
-          >
+          <a href="/resume.pdf" download className="text-[10px] font-mono text-neutral-400 hover:text-neutral-600 underline block">
             // or fetch raw static public/resume.pdf
           </a>
         </div>
-
       </div>
     </div>
   );
