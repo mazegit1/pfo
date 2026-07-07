@@ -1,1 +1,34 @@
+/* Tailwind v4-ün yeni ana import direktivi (Köhnə @tailwind-ləri əvəz edir) */
 @import "tailwindcss";
+
+/* Premium Dark / Light Mode tənzimləmələri */
+@theme {
+  --color-brand-bg: var(--bg-color);
+  --color-brand-text: var(--text-color);
+  --color-brand-border: var(--border-color);
+  --color-brand-card: var(--card-bg);
+}
+
+:root {
+  --bg-color: #fcfaf6;
+  --text-color: #161616;
+  --border-color: rgba(22, 22, 22, 0.1);
+  --card-bg: rgba(22, 22, 22, 0.03);
+}
+
+/* Next-themes paketi dark rejimə keçəndə html-ə .dark sinfi atır */
+html.dark {
+  --bg-color: #0e0e10;
+  --text-color: #f4f4f6;
+  --border-color: rgba(244, 244, 244, 0.08);
+  --card-bg: rgba(244, 244, 244, 0.03);
+}
+
+/* Bütün sayt boyu rəng keçidləri ipək kimi yumşaq olsun */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
