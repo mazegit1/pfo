@@ -1,4 +1,3 @@
-// components/ExportResumeComponent.tsx
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -13,7 +12,6 @@ const ExportResumeComponent = () => {
     setIsMounted(true);
   }, []);
 
-  // Brauzer tam hazır olana qədər server tərəfdə @react-pdf kodunun icrasını bloklayırıq
   if (!isMounted) {
     return (
       <div className="w-full min-h-screen bg-[#fcfaf6] flex items-center justify-center font-mono text-xs text-neutral-400">
@@ -32,7 +30,6 @@ const ExportResumeComponent = () => {
         </div>
 
         <PDFDownloadLink document={<ResumeDocument />} fileName="huseyn_khalil_resume.pdf">
-          {/* @ts-ignore */}
           {({ loading }) => (
             <button className="w-full bg-[#161616] text-[#fcfaf6] px-5 py-3 text-xs font-mono uppercase tracking-widest hover:bg-neutral-800 transition-colors rounded-sm cursor-pointer">
               {loading ? 'Processing Document...' : 'Execute Export Sequence'}

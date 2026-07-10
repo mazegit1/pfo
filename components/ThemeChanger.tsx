@@ -5,14 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiSun, FiMoon } from 'react-icons/fi';
 
 interface ThemeChangerProps {
-  isMenuOpen?: boolean; // Header menyusu açıq olanda true ötürüləcək
+  isMenuOpen?: boolean; 
 }
 
 const ThemeChanger: React.FC<ThemeChangerProps> = ({ isMenuOpen = false }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mounted, setMounted] = useState(false);
 
-  // SSR-dən qaynaqlanan hidrasiya (hydration) xətalarının qarşısını almaq üçün
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
@@ -21,7 +20,6 @@ const ThemeChanger: React.FC<ThemeChangerProps> = ({ isMenuOpen = false }) => {
       setTheme(savedTheme);
       document.documentElement.classList.toggle('dark', savedTheme === 'dark');
     } else {
-      // Sistem üstünlük verdiyi rejimi yoxlayırıq
       const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const initialTheme = systemPrefersDark ? 'dark' : 'light';
       setTheme(initialTheme);
@@ -45,7 +43,6 @@ const ThemeChanger: React.FC<ThemeChangerProps> = ({ isMenuOpen = false }) => {
 
   return (
     <AnimatePresence>
-      {/* Əgər header/menyu açıqdırsa, düymə tamamilə unmount olunub gizlənir */}
       {!isMenuOpen && (
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -59,7 +56,6 @@ const ThemeChanger: React.FC<ThemeChangerProps> = ({ isMenuOpen = false }) => {
             aria-label="Toggle System Matrix Color Rejection"
             className="group relative flex h-12 w-12 items-center justify-center border border-brand-border bg-brand-card text-brand-text rounded-full shadow-sm hover:border-brand-text transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-md"
           >
-            {/* Hover zamanı arxa fona gələn incə dairə effekti */}
             <div className="absolute inset-0 -z-10 bg-brand-text scale-0 rounded-full group-hover:scale-100 transition-transform duration-500 origin-center" />
 
             <AnimatePresence mode="wait">
