@@ -61,8 +61,10 @@ export const ProjShowcase = () => {
 
       default:
         return (
-          <div className="w-12 h-px bg-brand-border group-hover:w-24 transition-all duration-700 ease-out flex items-center justify-center relative">
-            <FiLayers className="text-neutral-400 absolute opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
+          <div className="w-full h-full border border-brand-border rounded p-4 bg-brand-bg/90 flex items-center justify-center group-hover:border-brand-text/40 transition-colors duration-500">
+            <div className="w-12 h-px bg-brand-border group-hover:w-24 transition-all duration-700 ease-out flex items-center justify-center relative">
+              <FiLayers className="text-neutral-400 absolute opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
+            </div>
           </div>
         );
     }

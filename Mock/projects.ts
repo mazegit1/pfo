@@ -1,51 +1,60 @@
+// /Mock/projects.ts
+
 export interface Project {
-    id: string;
-    title: string;
-    desc: string;
-    type: string;
-    year: string;
-    tags: string[];
-    metrics: { label: string; value: string };
+  id: string;
+  title: string;
+  desc: string;
+  year: string;
+  tags: string[];
+  type: string;
+  metrics: {
+    label: string;
+    value: string;
+  };
+  image?: string; 
+}
+
+export const primaryProjects: Project[] = [
+  {
+    id: "maze-notes",
+    title: "Maze Notes Ecosystem",
+    desc: "Cyber-minimalist productivity platform built for fast note capture, keyboard-driven structural logs, and zero latency.",
+    year: "2026",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    type: "Frontend",
+    metrics: { label: "IO_SPEED", value: "0.2ms" },
+    image: "/images/notes.png"
+  },
+  {
+    id: "maze-movio",
+    title: "Maze Movio Platform",
+    desc: "Immersive cinematic explorer optimized with heavy client-side state transitions, asynchronous search filters, and media pre-caching.",
+    year: "2025",
+    tags: ["React.js", "Next.js", "Tailwind CSS", "TMDB API"],
+    type: "Frontend",
+    metrics: { label: "CACHE", value: "HIT" },
+    image: "/images/mazemovio.png"
   }
-  
-  export const primaryProjects: Project[] = [
-    {
-      id: "course-management",
-      title: "Course Management System",
-      desc: "Enterprise educational management platform integrating automated tracking metrics, payment processing ledgers, and secure client role matrixing.",
-      type: "Full Architecture",
-      year: "2026",
-      tags: ["Next.js", "TypeScript", "Zustand", "Tailwind"],
-      metrics: { label: "Render Overhead", value: "< 14ms" }
-    },
-    {
-      id: "internship-management",
-      title: "Internship Tracking Registry",
-      desc: "A secure cross-platform monitoring client built to manage internal student lifecycle assignments, featuring real-time data sync nodes.",
-      type: "System Interface",
-      year: "2026",
-      tags: ["React.js", "Java Node", "Tailwind", "REST API"],
-      metrics: { label: "Data Pipeline Sync", value: "Realtime" }
-    }
-  ];
-  
-  export const extraProjects: Project[] = [
-    {
-      id: "hardware-telemetry",
-      title: "ECU Diagnostic Telemetry Node",
-      desc: "Low-level diagnostic dashboard mapping interface designed to translate automotive engine control unit data signatures visually.",
-      type: "Hardware Interface",
-      year: "2026",
-      tags: ["React", "TypeScript", "Tailwind CSS", "Canvas API"],
-      metrics: { label: "Signal Latency", value: "0.2ms" }
-    },
-    {
-      id: "custom-music-ui",
-      title: "Reactive Audio Stream Layer",
-      desc: "Dynamic front-end audio rendering node tracking reactive client-side buffer streams smoothly without frame degradation.",
-      type: "UI Core Engine",
-      year: "2025",
-      tags: ["Next.js", "Framer Motion", "Web Audio API"],
-      metrics: { label: "Frame Threshold", value: "60 FPS" }
-    }
-  ];
+];
+
+export const extraProjects: Project[] = [
+  {
+    id: "gleamy-showcase",
+    title: "Gleamy Core UI Showcase",
+    desc: "Polished interface hub demonstrating advanced animation mechanics, clean state pipelines, and high-density performance screens.",
+    year: "2025",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    type: "Frontend",
+    metrics: { label: "FPS", value: "120" },
+    image: "/images/gleamy.png"
+  },
+  {
+    id: "fake-db-dashboard",
+    title: "Asynchronous Database Engine Environment",
+    desc: "An operational sandbox implementing mock relational database setups, live CRUD hooks, and low-latency state mutations.",
+    year: "2026",
+    tags: ["React.js", "JSON Server", "REST API", "Axios"],
+    type: "Full Development",
+    metrics: { label: "MUTATE", value: "ASYNC" }
+  }
+];
