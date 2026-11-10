@@ -1,23 +1,23 @@
+
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 
+import CursorSpotlight from "@/components/Effects/CursorSpotlight";
 import Header from "@/components/Header/header";
 import Footer from "@/components/Footer/footer";
 import ThemeChanger from "@/components/ThemeChanger";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "made by Huseyn Khalil",
+  title: "Huseyn Khalil | Front-end Developer",
+  description:
+    "Huseyn Khalil — Front-end Developer specializing in Next.js, React, TypeScript and modern web experiences.",
 };
 
 export default function RootLayout({
@@ -25,24 +25,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      suppressHydrationWarning 
+      className={`${manrope.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="layout relative min-h-full flex flex-col bg-brand-bg text-brand-text transition-colors duration-500">
+      <body className="layout relative flex min-h-full flex-col bg-brand-bg text-brand-text transition-colors duration-500">
+        <CursorSpotlight />
+
         <Header />
-        
+
         <main className="flex grow">
           {children}
         </main>
-        
+
         <Footer />
-        
-           <ThemeChanger />
+
+        <ThemeChanger />
       </body>
     </html>
   );

@@ -1,7 +1,10 @@
-/* Tailwind v4-ün yeni ana import direktivi (Köhnə @tailwind-ləri əvəz edir) */
+
 @import "tailwindcss";
 
-/* Premium Dark / Light Mode tənzimləmələri */
+/* =========================================
+   THEME CONFIGURATION
+========================================= */
+
 @theme {
   --color-brand-bg: var(--bg-color);
   --color-brand-text: var(--text-color);
@@ -9,26 +12,211 @@
   --color-brand-card: var(--card-bg);
 }
 
+/* =========================================
+   LIGHT MODE
+========================================= */
+
 :root {
   --bg-color: #fcfaf6;
   --text-color: #161616;
   --border-color: rgba(22, 22, 22, 0.1);
   --card-bg: rgba(22, 22, 22, 0.03);
+
+  --cursor-glow: rgba(30, 30, 30, 0.34);
+  --cursor-glow-mid: rgba(30, 30, 30, 0.22);
+  --cursor-glow-soft: rgba(30, 30, 30, 0.10);
+  --cursor-ring: rgba(22, 22, 22, 0.9);
+  --cursor-dot: #161616;
 }
 
-/* Next-themes paketi dark rejimə keçəndə html-ə .dark sinfi atır */
+/* =========================================
+   DARK MODE
+========================================= */
+
 html.dark {
   --bg-color: #0e0e10;
   --text-color: #f4f4f6;
   --border-color: rgba(244, 244, 244, 0.08);
   --card-bg: rgba(244, 244, 244, 0.03);
+
+  --cursor-glow: rgba(255, 255, 255, 0.42);
+  --cursor-glow-mid: rgba(255, 255, 255, 0.27);
+  --cursor-glow-soft: rgba(255, 255, 255, 0.12);
+  --cursor-ring: rgba(255, 255, 255, 0.9);
+  --cursor-dot: #ffffff;
 }
 
-/* Bütün sayt boyu rəng keçidləri ipək kimi yumşaq olsun */
+/* =========================================
+   GLOBAL THEME TRANSITIONS
+========================================= */
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transition:
+    background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   HIDE NATIVE CURSOR
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  html,
+  html body,
+  html body * {
+    cursor: none !important;
+  }
+}
+
+/* =========================================
+   PREMIUM FLUID CURSOR
+========================================= */
+
+.fluid-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 220px;
+  height: 220px;
+
+  z-index: 9999;
+  pointer-events: none;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform-origin: center center;
+
+  will-change: transform, opacity;
+
+  transition:
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.4s ease;
+}
+
+.fluid-cursor[data-active="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================
+   AMBIENT SPOTLIGHT
+========================================= */
+
+.fluid-cursor-core {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    var(--cursor-glow) 0%,
+    var(--cursor-glow-mid) 18%,
+    var(--cursor-glow-soft) 38%,
+    transparent 76%
+  );
+
+  filter: blur(15px);
+
+  transform-origin: center center;
+
+  will-change: transform;
+
+  transition:
+    filter 0.4s ease,
+    opacity 0.4s ease;
+}
+
+/* =========================================
+   CENTER CURSOR RING
+========================================= */
+
+.fluid-cursor-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--cursor-ring);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(2px);
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+
+  transition:
+    border-color 0.4s ease,
+    background 0.4s ease;
+}
+
+/* =========================================
+   CENTER DOT
+========================================= */
+
+.fluid-cursor-dot {
+  width: 7px;
+  height: 7px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: var(--cursor-dot);
+
+  box-shadow:
+    0 0 8px var(--cursor-glow-soft);
+
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* =========================================
+   MOBILE & TOUCH DEVICES
+========================================= */
+
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+  .fluid-cursor {
+    display: none !important;
+  }
+
+  html,
+  body,
+  body * {
+    cursor: auto !important;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fluid-cursor {
+    display: none !important;
+  }
+
+  html,
+  body,
+  body * {
+    cursor: auto !important;
+  }
 }

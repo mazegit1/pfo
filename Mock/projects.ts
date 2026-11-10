@@ -1,4 +1,3 @@
-// /Mock/projects.ts
 
 export interface Project {
   id: string;
@@ -11,50 +10,68 @@ export interface Project {
     label: string;
     value: string;
   };
-  image?: string; 
+  image: string;
+  link: string;
 }
 
 export const primaryProjects: Project[] = [
   {
-    id: "maze-notes",
-    title: "Maze Notes Ecosystem",
-    desc: "Cyber-minimalist productivity platform built for fast note capture, keyboard-driven structural logs, and zero latency.",
+    id: "safavy-front",
+    title: "Safavy Platform Integration",
+    desc: "Engineered responsive UI modules and clean state architecture for modern educational products, focusing on usability, scalable components, and seamless user interactions.",
     year: "2026",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    type: "Frontend",
-    metrics: { label: "IO_SPEED", value: "0.2ms" },
-    image: "/images/notes.png"
+    tags: ["React.js", "JavaScript", "Tailwind CSS", "Redux"],
+    type: "Education Platform",
+    metrics: {
+      label: "Core Focus",
+      value: "Frontend Architecture",
+    },
+    image: "/works/safavy.png",
+    link: "https://safavy.org/",
   },
   {
-    id: "maze-movio",
-    title: "Maze Movio Platform",
-    desc: "Immersive cinematic explorer optimized with heavy client-side state transitions, asynchronous search filters, and media pre-caching.",
-    year: "2025",
-    tags: ["React.js", "Next.js", "Tailwind CSS", "TMDB API"],
-    type: "Frontend",
-    metrics: { label: "CACHE", value: "HIT" },
-    image: "/images/mazemovio.png"
-  }
+    id: "high-result-academy",
+    title: "High Result Academy System",
+    desc: "A modern educational platform built with modular components and optimized rendering, delivering scalable student interaction interfaces and a responsive learning experience.",
+    year: "2026",
+    tags: ["React.js", "Next.js", "TypeScript", "Tailwind"],
+    type: "Educational Website",
+    metrics: {
+      label: "Core Focus",
+      value: "Scalable UI",
+    },
+    image: "/works/hra.png",
+    link: "https://hra.edu.az/",
+  },
 ];
 
 export const extraProjects: Project[] = [
   {
-    id: "gleamy-showcase",
-    title: "Gleamy Core UI Showcase",
-    desc: "Polished interface hub demonstrating advanced animation mechanics, clean state pipelines, and high-density performance screens.",
-    year: "2025",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    type: "Frontend",
-    metrics: { label: "FPS", value: "120" },
-    image: "/images/gleamy.png"
+    id: "outdoora",
+    title: "Outdoora Adventure Matrix",
+    desc: "An immersive travel-focused interface featuring intricate media grids, smooth micro-interactions, and responsive layouts designed to deliver an engaging adventure discovery experience.",
+    year: "2026",
+    tags: ["React.js", "Tailwind CSS", "Framer Motion"],
+    type: "Travel Platform",
+    metrics: {
+      label: "Core Focus",
+      value: "Interactive Experience",
+    },
+    image: "/works/outdoora.png",
+    link: "https://outdoora.netlify.app/",
   },
   {
-    id: "fake-db-dashboard",
-    title: "Asynchronous Database Engine Environment",
-    desc: "An operational sandbox implementing mock relational database setups, live CRUD hooks, and low-latency state mutations.",
+    id: "maze-movio",
+    title: "Maze Movio Platform",
+    desc: "An immersive cinematic discovery platform featuring asynchronous movie search, dynamic filtering, and smooth interface transitions powered by movie database integration.",
     year: "2026",
-    tags: ["React.js", "JSON Server", "REST API", "Axios"],
-    type: "Full Development",
-    metrics: { label: "MUTATE", value: "ASYNC" }
-  }
+    tags: ["React.js", "Next.js", "Tailwind CSS", "TMDB API"],
+    type: "Movie Discovery Platform",
+    metrics: {
+      label: "Core Focus",
+      value: "API Integration",
+    },
+    image: "/works/mazemovio.png",
+    link: "https://maze-movio.vercel.app/",
+  },
 ];

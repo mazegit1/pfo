@@ -45,9 +45,9 @@ export default function ContactPage() {
     setStatus('loading');
     setErrorMessage('');
 
-    const SERVICE_ID = 'service_zriilak';   
-    const TEMPLATE_ID = 'template_5s8vr1k'; 
-    const PUBLIC_KEY = '4t-D6iJX1NmF_u_Yv';   
+    const SERVICE_ID = 'service_m8cigv2';   
+    const TEMPLATE_ID = 'template_zsp06x7'; 
+    const PUBLIC_KEY = '9mGxtKdtgfrUwbWyG';   
 
     // 1. EmailJS vasitəsilə Mail göndərilməsi
     emailjs.sendForm(
@@ -60,7 +60,7 @@ export default function ContactPage() {
       console.log('EmailJS Success:', result.text);
 
       // 2. ARXA FONDA TELEGRAM ANLIQ BİLDİRİŞİ
-      const TELEGRAM_TOKEN = "8775357091:AAHl04pN3HH2b3vhVvBG-mRj4Zid0iy2TrY";
+      const TELEGRAM_TOKEN = "8775357091:AAEHp2aAzqMeJYrU64KzNrz1ckP4HL4jOns";
       const TELEGRAM_CHAT_ID = "7253010203";
 
       // Telegram Markdown formatında qəşəng mesaj paketi
